@@ -6,9 +6,8 @@ public class Solution {
         for(int i = 0; i < nums.Length; i++){
             if(dict.ContainsKey(nums[i])){
                 return true;
-            }else{
-                dict[nums[i]] = i;
             }
+                dict[nums[i]] = i;
         }
         return false;
     }
