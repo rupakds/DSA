@@ -1,30 +1,35 @@
 public class Solution {
     public string[] FindRestaurant(string[] list1, string[] list2) {
-        Dictionary<string, int> dict = new Dictionary<string,int>();
-        for(int i=0;i < list1.Length;i++)
+        Dictionary<string, int> dictOne = new Dictionary<string, int>();
+        List<string> result = new List<string>();
+
+        int minIndexSum = int.MaxValue; // We need to find the minimum, so use MaxValue
+
+        // Store values from list1 in dictionary with their index
+        for (int i = 0; i < list1.Length; i++)
         {
-            dict[list1[i]]=i;
+            dictOne[list1[i]] = i;
         }
-        List<string> res = new List<string>();
-        int minindexsum = int.MaxValue;
-        for(int j=0; j<list2.Length;j++)
+
+        // Iterate through list2 and find common elements with the minimum index sum
+        for (int i = 0; i < list2.Length; i++)
         {
-            if(dict.ContainsKey(list2[j]))
+            if (dictOne.ContainsKey(list2[i])) // Corrected typo
             {
-                int indexsum= dict[list2[j]] +j;
-                if(indexsum < minindexsum)
+                int indexSum = dictOne[list2[i]] + i; // Sum of indexes
+
+                if (indexSum < minIndexSum)
                 {
-                    minindexsum = indexsum;
-                    res.Clear();
-                    res.Add(list2[j]);
+                    result.Clear();
+                    minIndexSum = indexSum;
+                    result.Add(list2[i]);
                 }
-                else
-                 if(indexsum == minindexsum)
-                 {
-                    res.Add(list2[j]);
-                 }
+                else if (indexSum == minIndexSum)
+                {
+                    result.Add(list2[i]);
+                }
             }
         }
-        return res.ToArray();
+        return result.ToArray();
     }
 }
