@@ -15,7 +15,8 @@ public class Solution {
           current = current.next;
        } 
        if (list1 != null) current.next = list1;
-if (list2 != null) current.next = list2;
+       if (list2 != null) current.next = list2;
+       
        return starting.next;
 
     }
