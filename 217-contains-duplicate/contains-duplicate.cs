@@ -1,13 +1,14 @@
 public class Solution {
     public bool ContainsDuplicate(int[] nums) {
         
-        Dictionary<int, int> dict = new Dictionary<int, int>();
-
-        for(int i = 0; i < nums.Length; i++){
-            if(dict.ContainsKey(nums[i])){
-                return true;
+        HashSet<int> set = new HashSet<int>();
+        int i = 0;
+        while(i < nums.Length){
+            if(set.Contains(nums[i])){
+              return true;
             }
-                dict[nums[i]] = i;
+            set.Add(nums[i]);  
+            i++;
         }
         return false;
     }
