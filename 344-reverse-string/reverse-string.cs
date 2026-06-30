@@ -12,10 +12,5 @@ public class Solution {
            left++;
            right--;
          }
-
-         for(int i = 0; i < s.Length - 1; i++){
-           Console.Write(s[i]);
-         }
-        
     }
 }
